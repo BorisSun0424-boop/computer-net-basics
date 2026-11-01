@@ -157,6 +157,36 @@ function BlockView({ block }: { block: Block }) {
       )
     }
 
+    case 'case':
+      return (
+        <div className="my-8 rounded-lg border border-ink-100 bg-paper-soft px-5 py-4">
+          <div className="mb-3 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-accent-600">
+            <span aria-hidden>◧</span>
+            放到工作里
+          </div>
+          <ul className="space-y-[14px]">
+            {block.items.map((item, i) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  aria-hidden
+                  className="mt-[2px] flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] bg-accent-100 text-[11px] font-semibold text-accent-700"
+                >
+                  {i + 1}
+                </span>
+                <div className="min-w-0">
+                  <div className="text-[15.5px] font-medium leading-[1.7] text-ink-900">
+                    <RichText text={item.scene} />
+                  </div>
+                  <p className="mt-1 text-[15px] leading-[1.8] text-ink-700">
+                    <RichText text={item.detail} />
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+
     default:
       return null
   }

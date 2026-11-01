@@ -1,3 +1,4 @@
+import type { Block } from '../types'
 import { flatTopics, topicPath } from '../content'
 import { glossary } from '../content/glossary'
 import { scenarios } from '../content/scenarios'
@@ -13,13 +14,40 @@ interface Indexed extends SearchHit {
   haystack: string
 }
 
+/** 把一篇知识点的全部正文压成一段可检索文本，让搜索能命中正文与工作场景。 */
+function blocksText(blocks: Block[]): string {
+  return blocks
+    .map((b) => {
+      switch (b.type) {
+        case 'p':
+        case 'h':
+          return b.text
+        case 'list':
+        case 'pitfall':
+          return b.items.join(' ')
+        case 'analogy':
+        case 'note':
+          return b.text
+        case 'table':
+          return [...b.head, ...b.rows.flat()].join(' ')
+        case 'code':
+          return b.code
+        case 'case':
+          return b.items.map((i) => `${i.scene} ${i.detail}`).join(' ')
+        default:
+          return ''
+      }
+    })
+    .join(' ')
+}
+
 const index: Indexed[] = [
   ...flatTopics.map(({ chapter, topic }) => ({
     kind: '知识点' as const,
     title: topic.title,
     hint: topic.summary,
     to: topicPath(chapter.slug, topic.slug),
-    haystack: `${chapter.title} ${topic.title} ${topic.summary} ${topic.keywords.join(' ')}`.toLowerCase(),
+    haystack: `${chapter.title} ${topic.title} ${topic.summary} ${topic.keywords.join(' ')} ${blocksText(topic.blocks)}`.toLowerCase(),
   })),
   ...glossary.map((g) => ({
     kind: '术语' as const,

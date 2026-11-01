@@ -9,6 +9,7 @@ export type Block =
   | { type: 'pitfall'; items: string[] }
   | { type: 'table'; head: string[]; rows: string[][] }
   | { type: 'note'; tone: 'info' | 'warn' | 'key'; title?: string; text: string }
+  | { type: 'case'; items: { scene: string; detail: string }[] }
 
 export interface Topic {
   slug: string
