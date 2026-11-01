@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper-soft text-ink-900 font-sans antialiased;
+    font-feature-settings: 'kern' 1;
+  }
+
+  ::selection {
+    background: #dbe7fe;
+    color: #1a1a18;
+  }
+
+  /* 细滚动条，避免抢视线 */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d9d6ce transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #d9d6ce;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #c2bfb5;
+    background-clip: content-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2f6bdc;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* 正文排版 —— 只在这里集中控制阅读节奏 */
+  .prose-doc {
+    @apply text-[16.5px] leading-[1.85] text-ink-700;
+  }
+  .prose-doc > * + * {
+    @apply mt-5;
+  }
+  .prose-doc h3 {
+    @apply mt-10 mb-3 font-serif text-[20px] font-semibold tracking-tight text-ink-900;
+  }
+  .prose-doc strong {
+    @apply font-semibold text-ink-900;
+  }
+  .prose-doc a {
+    @apply text-accent-600 underline decoration-accent-100 decoration-2 underline-offset-2 hover:decoration-accent-500;
+  }
+  .prose-doc code {
+    @apply rounded-[4px] bg-paper-sunk px-1.5 py-0.5 font-mono text-[0.86em] text-ink-900;
+  }
+  .prose-doc ul,
+  .prose-doc ol {
+    @apply pl-6;
+  }
+  .prose-doc ul {
+    @apply list-disc;
+  }
+  .prose-doc ol {
+    @apply list-decimal;
+  }
+  .prose-doc li {
+    @apply mt-2 pl-1 marker:text-ink-300;
+  }
+  .prose-doc li > ul,
+  .prose-doc li > ol {
+    @apply mt-2;
+  }
+
+  .hairline {
+    @apply border-ink-100;
+  }
+}

@@ -1,0 +1,22 @@
+# 依赖与构建产物
+node_modules
+dist
+dist-ssr
+
+# 缓存与本地环境
+*.local
+.DS_Store
+.npm-cache
+.tmp
+.chrome-profile
+.shots
+shot-*.png
+
+# Vite 配置编译产生的临时文件
+vite.config.ts.timestamp-*
+*.timestamp-*.mjs
+
+# 编辑器
+.vscode/*
+!.vscode/extensions.json
+.idea
