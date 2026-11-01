@@ -91,14 +91,6 @@ export function MapPage() {
               遇到故障时，从<strong className="text-ink-900">下往上</strong>排查。下层不通，上层的报错全是噪声。
             </span>
           </li>
-          <li className="flex gap-2">
-            <span className="text-ink-300">3.</span>
-            想搞懂"一次点击到底发生了什么"，去看{' '}
-            <Link to="/journey" className="text-accent-600 hover:underline">
-              完整旅程
-            </Link>
-            ——那里把这些词按时间顺序串了一遍。
-          </li>
         </ul>
       </div>
 

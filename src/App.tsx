@@ -3,7 +3,6 @@ import { Layout } from './components/Layout'
 import { ChapterPage } from './pages/ChapterPage'
 import { Glossary } from './pages/Glossary'
 import { Home } from './pages/Home'
-import { Journey } from './pages/Journey'
 import { MapPage } from './pages/MapPage'
 import { NotFound } from './pages/NotFound'
 import { Quiz } from './pages/Quiz'
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/roadmap" element={<Roadmap />} />
-          <Route path="/journey" element={<Journey />} />
           <Route path="/ch/:chapterSlug" element={<ChapterPage />} />
           <Route path="/ch/:chapterSlug/:topicSlug" element={<TopicPage />} />
           <Route path="/scenarios" element={<Scenarios />} />

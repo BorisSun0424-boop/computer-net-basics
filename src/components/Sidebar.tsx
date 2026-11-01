@@ -7,7 +7,6 @@ const navItems = [
   { to: '/', label: '首页' },
   { to: '/map', label: '知识地图' },
   { to: '/roadmap', label: '学习路线' },
-  { to: '/journey', label: '一次点击的旅程' },
   { to: '/scenarios', label: '场景问答' },
   { to: '/glossary', label: '术语词典' },
   { to: '/quiz', label: '小测验' },

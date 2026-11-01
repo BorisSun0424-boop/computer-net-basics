@@ -65,35 +65,22 @@ export function Home() {
         </div>
       </section>
 
-      {/* 两条入口：先看全貌，再决定读哪 */}
-      <section className="mt-2 grid gap-3 sm:grid-cols-2">
+      {/* 入口：先看全貌，再决定读哪 */}
+      <section className="mt-2">
         <Link
           to="/map"
-          className="group flex flex-col rounded-xl border border-ink-100 bg-paper p-5 transition-all hover:border-ink-300/50 hover:shadow-card"
+          className="group flex flex-col gap-2 rounded-xl border border-ink-100 bg-paper px-5 py-4 transition-all hover:border-ink-300/50 hover:shadow-card sm:flex-row sm:items-center sm:justify-between sm:gap-8"
         >
-          <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-300">
-            <span className="font-mono">L0 — L7</span>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-300">
+              <span className="font-mono">L0 — L7</span>
+            </div>
+            <h3 className="mt-1.5 font-serif text-[18px] font-semibold text-ink-900 transition-colors group-hover:text-accent-700">
+              知识地图：每个名词都在某一层
+            </h3>
           </div>
-          <h3 className="mt-2 font-serif text-[19px] font-semibold text-ink-900 transition-colors group-hover:text-accent-700">
-            知识地图：每个名词都在某一层
-          </h3>
-          <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-500">
+          <p className="text-[13.5px] leading-relaxed text-ink-500 sm:max-w-[46%] sm:text-right">
             CPU、硬盘、DNS、Cookie、Token……先搞清它们各属于哪一层，就不会记成一堆散词。
-          </p>
-        </Link>
-
-        <Link
-          to="/journey"
-          className="group flex flex-col rounded-xl border border-ink-100 bg-paper p-5 transition-all hover:border-ink-300/50 hover:shadow-card"
-        >
-          <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-300">
-            <span className="font-mono">12 STEPS</span>
-          </div>
-          <h3 className="mt-2 font-serif text-[19px] font-semibold text-ink-900 transition-colors group-hover:text-accent-700">
-            一次点击的完整旅程
-          </h3>
-          <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-500">
-            你按下鼠标之后 12 步里发生的事——把所有名词按时间顺序串成一条链。
           </p>
         </Link>
       </section>
